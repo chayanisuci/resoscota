@@ -233,20 +233,23 @@ if (isset($_POST['simpan'])) {
 
                                         <div class="form-group">
                                             <label for="helperText">Upload SK Pengangkatan Anak</label>
-                                            <input type="file" name="skpa" accept="application/pdf" id="skpa" class="form-control">
+                                            <input type="file" name="skpa" accept="application/pdf" id="skpa"
+                                                class="form-control">
                                             <p><small class="text-muted">Upload file dengan format pdf.</small>
                                             </p>
                                         </div>
 
                                         <div class="form-group">
                                             <label for="helperText">Upload Berkas Pengangkatan</label>
-                                            <input type="file" name="final" accept="application/pdf" id="final" class="form-control">
+                                            <input type="file" name="final" accept="application/pdf" id="final"
+                                                class="form-control">
                                             <p><small class="text-muted">Upload file dengan format pdf.</small>
                                             </p>
                                         </div>
 
                                         <div class="btn-btn">
-                                            <input type="submit" value="Submit" class="btn btn-primary" id="simpan" name="simpan">
+                                            <input type="submit" value="Submit" class="btn btn-primary" id="simpan"
+                                                name="simpan">
                                             <a href="datacota.php" class="btn btn-danger">Batal</a>
                                         </div>
                         </form>

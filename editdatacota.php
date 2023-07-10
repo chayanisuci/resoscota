@@ -77,12 +77,12 @@ if (isset($_POST['edit'])) {
             $uploadDone = 0;
         }
 
-        // Batasi ukuran file yang diupload (misalnya, maksimal 5MB)
-        $maxFileSize = 5 * 1024 * 1024; // 5 MB
-        if ($_FILES["skpa"]["size"] > $maxFileSize) {
-            echo "Maaf, ukuran file terlalu besar. Maksimal 5MB.";
-            $uploadDone = 0;
-        }
+        // // Batasi ukuran file yang diupload (misalnya, maksimal 5MB)
+        // $maxFileSize = 5 * 1024 * 1024; // 5 MB
+        // if ($_FILES["skpa"]["size"] > $maxFileSize) {
+        //     echo "Maaf, ukuran file terlalu besar. Maksimal 5MB.";
+        //     $uploadDone = 0;
+        // }
 
 
         // Hapus file lama
@@ -134,12 +134,12 @@ if ($targetFile1 != $Kfinal && $targetSkpa1 == "skpa/") {
             $uploadOk = 0;
         }
 
-        // Batasi ukuran file yang diupload (misalnya, maksimal 5MB)
-        $maxFileSize = 5 * 1024 * 1024; // 5 MB
-        if ($_FILES["final"]["size"] > $maxFileSize) {
-            echo "Maaf, ukuran file terlalu besar. Maksimal 5MB.";
-            $uploadOk = 0;
-        }
+        // // Batasi ukuran file yang diupload (misalnya, maksimal 5MB)
+        // $maxFileSize = 5 * 1024 * 1024; // 5 MB
+        // if ($_FILES["final"]["size"] > $maxFileSize) {
+        //     echo "Maaf, ukuran file terlalu besar. Maksimal 5MB.";
+        //     $uploadOk = 0;
+        // }
 
         // Jika semua kondisi terpenuhi, lakukan upload file
         if ($uploadOk == 1) {

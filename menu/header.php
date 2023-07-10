@@ -11,6 +11,6 @@
     <link rel="stylesheet" href="assets/css/pages/fontawesome.css" />
     <link rel="stylesheet" href="assets/extensions/datatables.net-bs5/css/dataTables.bootstrap5.min.css" />
     <link rel="stylesheet" href="assets/css/pages/datatables.css" />
-    <link rel="stylesheet" href="../assets/css/kalender.css">
+    <link rel="stylesheet" href="assets/css/kalender.css">
 
 </head>
