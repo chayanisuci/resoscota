@@ -6,9 +6,19 @@ if (!isset($_SESSION["admin_id"])) {
 }
 include_once "proses/koneksi.php";
 $conn = new Koneksi();
+$totaldata = $conn->kueri("SELECT * FROM tb_arsipadopsi ");
+$total = $conn->jumlah_data($totaldata);
+$countEmptyFields = 0;
+$countFields = 0;
 
-// $totaldata = $conn->kueri("SELECT * FROM tb_arsipadopsi WHERE status = '0'");
-// $totaldata = $conn->jumlah_data($totaldata);
+foreach ($totaldata as $row) {
+    if (($row['skpa'] == "") || ($row['final'] == "")) {
+        $countEmptyFields++;
+    } else
+    if (($row['skpa'] != "") && ($row['final'] != "")) {
+        $countFields++;
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -37,14 +47,16 @@ $conn = new Koneksi();
                                 <div class="card">
                                     <div class="card-body px-4 py-4-5">
                                         <div class="row">
-                                            <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
+                                            <div
+                                                class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
                                                 <div class="stats-icon purple mb-2">
-                                                    <center><i style="margin-top:-30px" class="bi bi-graph-down-arrow"></i></center>
+                                                    <center><i style="margin-top:-30px"
+                                                            class="bi bi-graph-down-arrow"></i></center>
                                                 </div>
                                             </div>
                                             <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                                                <h6 class="text-muted font-semibold">Jumlah Data yang Belum Lengkap</h6>
-                                                <h6 class="font-extrabold mb-0"></h6>
+                                                <h6 class="text-muted font-semibold">Jumlah Data yang Sudah Lengkap</h6>
+                                                <h6 class="font-extrabold mb-0"><?= $countFields ?></h6>
                                             </div>
                                         </div>
                                     </div>
@@ -54,14 +66,16 @@ $conn = new Koneksi();
                                 <div class="card">
                                     <div class="card-body px-4 py-4-5">
                                         <div class="row">
-                                            <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
+                                            <div
+                                                class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
                                                 <div class="stats-icon green mb-2">
-                                                    <center><i style="margin-top:-30px" class="bi bi-graph-up-arrow"></i></center>
+                                                    <center><i style="margin-top:-30px"
+                                                            class="bi bi-graph-up-arrow"></i></center>
                                                 </div>
                                             </div>
                                             <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
                                                 <h6 class="text-muted font-semibold">Jumlah Data yang Belum Lengkap</h6>
-                                                <h6 class="font-extrabold mb-0"></h6>
+                                                <h6 class="font-extrabold mb-0"><?= $countEmptyFields ?></h6>
                                             </div>
                                         </div>
                                     </div>
@@ -71,14 +85,16 @@ $conn = new Koneksi();
                                 <div class="card">
                                     <div class="card-body px-4 py-4-5">
                                         <div class="row">
-                                            <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
+                                            <div
+                                                class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
                                                 <div class="stats-icon red mb-2">
-                                                    <center><i style="margin-top:-30px" class="bi bi-clipboard-data-fill"></i></center>
+                                                    <center><i style="margin-top:-30px"
+                                                            class="bi bi-clipboard-data-fill"></i></center>
                                                 </div>
                                             </div>
                                             <div class=" col-md-8 col-lg-12 col-xl-12 col-xxl-7">
                                                 <h6 class="text-muted font-semibold">Total Keseluruhan Data</h6>
-                                                <h6 class="font-extrabold mb-0"></h6>
+                                                <h6 class="font-extrabold mb-0"><?= $total ?></h6>
                                             </div>
                                         </div>
                                     </div>
@@ -145,11 +161,14 @@ $conn = new Koneksi();
     <script src="assets/js/bootstrap.js"></script>
     <script src="assets/js/app.js"></script>
 
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+
     <!-- Need: Apexcharts -->
     <script src="assets/extensions/apexcharts/apexcharts.min.js"></script>
     <script src="assets/js/pages/dashboard.js"></script>
 
     <!-- kalender -->
+    <script src="assets/js/kalender.js"></script>
 
 
 </body>

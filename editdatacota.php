@@ -37,9 +37,7 @@ if (isset($_POST['edit'])) {
 
 
     if ($targetSkpa1 == "skpa/" && $targetFile1 == "final/") {
-        // echo "no";
-        // die;
-        // $status = 1;
+
         $abc = $conn->kueri("
     UPDATE tb_arsipadopsi SET kota='$kota',cotal='$cotal',cotap='$cotap',anak='$anak',tahun='$tahun' WHERE id_adopsi = '$id' ");
         if ($abc == true) {
@@ -55,9 +53,6 @@ if (isset($_POST['edit'])) {
 
 
     if ($targetSkpa1 != $Kskp && $targetFile1 == "final/") {
-
-        // echo "yes";
-        // die;
 
         $random    = rand(10, 1000);
         $targetSk = "skpa/"; // Direktori tempat menyimpan file yang diupload
@@ -183,12 +178,12 @@ if ($targetFile1 != $Kfinal && $targetSkpa1 == "skpa/") {
             $uploadDone = 0;
         }
 
-        // Batasi ukuran file yang diupload (misalnya, maksimal 5MB)
-        $maxFileSize = 5 * 1024 * 1024; // 5 MB
-        if ($_FILES["skpa"]["size"] > $maxFileSize) {
-            echo "Maaf, ukuran file terlalu besar. Maksimal 5MB.";
-            $uploadDone = 0;
-        }
+        // // Batasi ukuran file yang diupload (misalnya, maksimal 5MB)
+        // $maxFileSize = 5 * 1024 * 1024; // 5 MB
+        // if ($_FILES["skpa"]["size"] > $maxFileSize) {
+        //     echo "Maaf, ukuran file terlalu besar. Maksimal 5MB.";
+        //     $uploadDone = 0;
+        // }
 
         // Jika semua kondisi terpenuhi, lakukan upload file
         if ($uploadDone == 1) {

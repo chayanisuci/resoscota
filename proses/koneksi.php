@@ -1,5 +1,4 @@
 <?php
-
 class Koneksi
 {
     private $konek;

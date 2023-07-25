@@ -27,7 +27,6 @@ if (isset($_POST['delete'])) {
     if ($dlt == true) {
 
 
-
         $_SESSION['hapus'] = "1";
         header("Location: " . $_SERVER['PHP_SELF']);
         exit();
@@ -125,70 +124,80 @@ if (isset($_POST['delete'])) {
                                 <tbody>
                                     <?php $no = 1192;
                                     foreach ($tampil as $data) { ?>
-                                        <tr>
-                                            <td><?= $no++ ?></td>
-                                            <td><?= $data['kota'] ?></td>
-                                            <td><?= $data['cotal'] ?></td>
-                                            <td><?= $data['cotap'] ?></td>
-                                            <td><?= $data['anak'] ?></td>
-                                            <td><?= $data['tahun'] ?></td>
-                                            <td>
-                                                <?php
+                                    <tr>
+                                        <td><?= $no++ ?></td>
+                                        <td><?= $data['kota'] ?></td>
+                                        <td><?= $data['cotal'] ?></td>
+                                        <td><?= $data['cotap'] ?></td>
+                                        <td><?= $data['anak'] ?></td>
+                                        <td><?= $data['tahun'] ?></td>
+                                        <td>
+                                            <?php
                                                 if ($data['skpa'] == null) { ?>
-                                                    <a href="#" onclick="alert('File Kosong !')" class="btn btn-success btn-sm"><i class="bi bi-download"></i></a>
+                                            <a href="#" onclick="alert('File Kosong !')"
+                                                class="btn btn-success btn-sm"><i class="bi bi-download"></i></a>
 
-                                                <?php } else {
+                                            <?php } else {
                                                 ?>
-                                                    <a href="<?= $data['skpa'] ?>" class="btn btn-primary btn-sm" target="_blank"><i class="bi bi-download"></i></a>
-                                                <?php } ?>
-                                            </td>
+                                            <a href="<?= $data['skpa'] ?>" class="btn btn-primary btn-sm"
+                                                target="_blank"><i class="bi bi-download"></i></a>
+                                            <?php } ?>
+                                        </td>
 
-                                            <td>
-                                                <?php
+                                        <td>
+                                            <?php
                                                 if ($data['final'] == null) { ?>
-                                                    <a href="#" onclick="alert('File Kosong !')" class="btn btn-success btn-sm"><i class="bi bi-download"></i></a>
+                                            <a href="#" onclick="alert('File Kosong !')"
+                                                class="btn btn-success btn-sm"><i class="bi bi-download"></i></a>
 
-                                                <?php } else {
+                                            <?php } else {
                                                 ?>
-                                                    <a href="<?= $data['final'] ?>" class="btn btn-primary btn-sm" target="_blank"><i class="bi bi-download"></i></a>
-                                                <?php } ?>
-                                            </td>
-                                            <td>
-                                                <a href="editdatacota.php?id=<?= $data['id_adopsi'] ?> " class="btn btn-warning btn-sm"><i class="bi bi-pencil"></i></a>
-                                                <?php echo '<button type="button" data-bs-toggle="modal" class="btn btn-danger btn-sm" data-bs-target="#hapus' . $data['id_adopsi'] . '"><i class="bi bi-trash"></i></button>'; ?>
-                                            </td>
-                                        </tr>
+                                            <a href="<?= $data['final'] ?>" class="btn btn-primary btn-sm"
+                                                target="_blank"><i class="bi bi-download"></i></a>
+                                            <?php } ?>
+                                        </td>
+                                        <td>
+                                            <a href="editdatacota.php?id=<?= $data['id_adopsi'] ?> "
+                                                class="btn btn-warning btn-sm"><i class="bi bi-pencil"></i></a>
+                                            <?php echo '<button type="button" data-bs-toggle="modal" class="btn btn-danger btn-sm" data-bs-target="#hapus' . $data['id_adopsi'] . '"><i class="bi bi-trash"></i></button>'; ?>
+                                        </td>
+                                    </tr>
 
 
-                                        <!-- modal-hapus -->
-                                        <?php echo '<div class="modal fade" id="hapus' . $data['id_adopsi'] . '" tabindex="-1"  
+                                    <!-- modal-hapus -->
+                                    <?php echo '<div class="modal fade" id="hapus' . $data['id_adopsi'] . '" tabindex="-1"  
             aria-labelledby="exampleModalLabel" aria-hidden="true">'; ?>
-                                        <div class="modal-dialog modal-dialog-centered">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title">Hapus Data Barang</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <center>
-                                                        <h4>Apakah anda ingin hapus data</h4>
-                                                        <h4>tersebut ?</h4>
-                                                    </center>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
-                                                    <form action="" method="POST">
-                                                        <?php echo '<button type="submit" class="btn btn-primary" name="delete" value="' . $data['id_adopsi'] . ' " ">Hapus</button>'; ?>
-                                                    </form>
-                                                </div>
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">Hapus Data Barang</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <center>
+                                                    <h4>Apakah anda ingin hapus data</h4>
+                                                    <h4>tersebut ?</h4>
+                                                </center>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-danger"
+                                                    data-bs-dismiss="modal">Batal</button>
+                                                <form action="" method="POST">
+                                                    <?php echo '<button type="submit" class="btn btn-primary" name="delete" value="' . $data['id_adopsi'] . ' " ">Hapus</button>'; ?>
+                                                </form>
                                             </div>
                                         </div>
+                                    </div>
                         </div>
                         <!-- end-modal-hapus -->
 
-                    <?php } ?>
-                    </tbody>
-                    </table>
+                        <?php } ?>
+
+                        <a href="excel.php" class="btn btn-success mb-4">Cetak Excel</a>
+
+                        </tbody>
+                        </table>
                     </div>
             </div>
             </section>
